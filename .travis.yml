@@ -22,11 +22,11 @@ before_install:
   - gcloud container clusters get-credentials multi-client
 
   - echo "$DOCKER_PASSWORD" | docker login -u "$DOCKER_ID" --password-stdin
-# Add test cases here
-#  - docker build -t janimkok/react-test -f ./client/Dockerfile.dev ./client
+#Add test cases here
+  - docker build -t janimkok/react-test -f ./client/Dockerfile.dev ./client
 
-#script:
-#  - docker run -e CI=true janimkok/react-test npm test
+script:
+  - docker run -e CI=true janimkok/react-test npm test
 
 deploy:
   provider: script
